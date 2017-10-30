@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Plus One · Hi JsOoO</title><meta name="description" content="Plus One - Johnson Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://jsooo.github.io/atom.xml" title="Hi JsOoO"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/jsooo" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Plus One</h1><div class="post-info">Aug 5, 2017</div><div class="post-content"><blockquote>
+<p>时隔一年，重新写起博客，以前的东西没有存，随它去吧，重新开始。<br>去年年初接触到 <a href="https://leetcode.com" target="_blank" rel="external">LeetCode</a>，这是一个Online Judge网站，很有趣，从这篇博客开始，争取把所有题目都做完。</p>
+</blockquote>
+<h3 id="0x00-题目"><a href="#0x00-题目" class="headerlink" title="0x00 题目"></a>0x00 题目</h3><p>Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.</p>
+<p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p>
+<p>The digits are stored such that the most significant digit is at the head of the list.</p>
+<h3 id="0x01-分析"><a href="#0x01-分析" class="headerlink" title="0x01 分析"></a>0x01 分析</h3><p>根据字面意思简单的理解就是给一个正整数组成的数组，期望将数组中的数字看成一个整型数，对其进行加一操作。<br>eg:<br>[1]  =&gt;  [2]<br>[9]  =&gt;  [1, 0]<br>[1, 9, 9]  =&gt;  [2, 0, 0]</p>
+<h3 id="0x02-编码"><a href="#0x02-编码" class="headerlink" title="0x02 编码"></a>0x02 编码</h3><ul>
+<li>python 版本<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plusOne</span><span class="params">(self, digits)</span>:</span></div><div class="line">        <span class="keyword">if</span> len(digits) == <span class="number">0</span>: </div><div class="line">            <span class="keyword">return</span> digits</div><div class="line">        <span class="keyword">if</span> digits[<span class="number">0</span>] == <span class="number">9</span> <span class="keyword">and</span> len(digits) == <span class="number">1</span>:</div><div class="line">            <span class="keyword">return</span> [<span class="number">1</span>,<span class="number">0</span>]</div><div class="line">        <span class="keyword">if</span> digits[<span class="number">-1</span>] != <span class="number">9</span>:</div><div class="line">            digits[<span class="number">-1</span>] += <span class="number">1</span></div><div class="line">            <span class="keyword">return</span> digits</div><div class="line">        tmp = self.plusOne(digits[<span class="number">0</span>:<span class="number">-1</span>])</div><div class="line">        tmp.append(<span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> tmp</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="0x03-运行结果"><a href="#0x03-运行结果" class="headerlink" title="0x03 运行结果"></a>0x03 运行结果</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">运行时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Python</td>
+<td style="text-align:center">56ms</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://leetcode.com/problems/plus-one/description/" target="_blank" rel="external">传送门：Plus One</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/10/30/longest-substring/" class="prev">上一篇</a></div><div class="copyright"><p>© 2017 <a href="https://jsooo.github.io">Johnson Wang</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-104216977-1",'auto');ga('send','pageview');</script></body></html>

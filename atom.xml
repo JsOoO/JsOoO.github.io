@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://jsooo.github.io/"/>
-  <updated>2017-08-07T14:52:27.000Z</updated>
+  <updated>2017-10-30T13:48:30.965Z</updated>
   <id>https://jsooo.github.io/</id>
   
   <author>
@@ -16,11 +16,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Longest Substring Without Repeating Characters</title>
+    <link href="https://jsooo.github.io/2017/10/30/longest-substring/"/>
+    <id>https://jsooo.github.io/2017/10/30/longest-substring/</id>
+    <published>2017-10-30T12:57:46.000Z</published>
+    <updated>2017-10-30T13:48:30.965Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="0x00-题目"><a href="#0x00-题目" class="headerlink" title="0x00 题目"></a>0x00 题目</h3><p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p>Examples:</p>
+<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
+<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
+<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+<h3 id="0x01-分析"><a href="#0x01-分析" class="headerlink" title="0x01 分析"></a>0x01 分析</h3><p>目的是想要截取到给定字符串中最长的不重复的字符串。</p>
+<p>eg:<br>abcabcabc =&gt; abc</p>
+<p>aaaaaaaababcd =&gt; abcd</p>
+<p>aaaaaa =&gt; a</p>
+<h3 id="0x02-编码"><a href="#0x02-编码" class="headerlink" title="0x02 编码"></a>0x02 编码</h3><ul>
+<li>golang 版本<figure class="highlight golang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</div><div class="line">    location := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">128</span>)</div><div class="line"></div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">128</span>; i++ &#123;</div><div class="line">		location[i] = <span class="number">-1</span></div><div class="line">	&#125;</div><div class="line">	begin, length  := <span class="number">-1</span>, <span class="number">0</span></div><div class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> s &#123;</div><div class="line">		<span class="keyword">if</span> location[v] &gt; begin&#123;</div><div class="line">			begin = location[s[i]]</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (i - begin &gt; length) &#123;</div><div class="line">			length = i - begin;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		location[s[i]] = i;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> length</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="0x03-运行结果"><a href="#0x03-运行结果" class="headerlink" title="0x03 运行结果"></a>0x03 运行结果</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">运行时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Golang</td>
+<td style="text-align:center">9ms</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" rel="external">传送门：Longest Substring Without Repeating Characters</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;0x00-题目&quot;&gt;&lt;a href=&quot;#0x00-题目&quot; class=&quot;headerlink&quot; title=&quot;0x00 题目&quot;&gt;&lt;/a&gt;0x00 题目&lt;/h3&gt;&lt;p&gt;Given a string, find the length of the longest sub
+    
+    </summary>
+    
+      <category term="code" scheme="https://jsooo.github.io/categories/code/"/>
+    
+    
+      <category term="LeetCode" scheme="https://jsooo.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Plus One</title>
-    <link href="https://jsooo.github.io/2017/08/07/plus-one/"/>
-    <id>https://jsooo.github.io/2017/08/07/plus-one/</id>
-    <published>2017-08-07T13:35:59.000Z</published>
-    <updated>2017-08-07T14:52:27.000Z</updated>
+    <link href="https://jsooo.github.io/2017/08/05/plus-one/"/>
+    <id>https://jsooo.github.io/2017/08/05/plus-one/</id>
+    <published>2017-08-05T12:15:21.000Z</published>
+    <updated>2017-10-30T13:48:30.966Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>时隔一年，重新写起博客，以前的东西没有存，随它去吧，重新开始。<br>去年年初接触到 <a href="https://leetcode.com" target="_blank" rel="external">LeetCode</a>，这是一个Online Judge网站，很有趣，从这篇博客开始，争取把所有题目都做完。</p>

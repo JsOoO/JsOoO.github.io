@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Longest Substring Without Repeating Characters · Hi JsOoO</title><meta name="description" content="Longest Substring Without Repeating Characters - Johnson Wang"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://jsooo.github.io/atom.xml" title="Hi JsOoO"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/jsooo" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Longest Substring Without Repeating Characters</h1><div class="post-info">Oct 30, 2017</div><div class="post-content"><h3 id="0x00-题目"><a href="#0x00-题目" class="headerlink" title="0x00 题目"></a>0x00 题目</h3><p>Given a string, find the length of the longest substring without repeating characters.</p>
+<p>Examples:</p>
+<p>Given “abcabcbb”, the answer is “abc”, which the length is 3.</p>
+<p>Given “bbbbb”, the answer is “b”, with the length of 1.</p>
+<p>Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring.</p>
+<h3 id="0x01-分析"><a href="#0x01-分析" class="headerlink" title="0x01 分析"></a>0x01 分析</h3><p>目的是想要截取到给定字符串中最长的不重复的字符串。</p>
+<p>eg:<br>abcabcabc =&gt; abc</p>
+<p>aaaaaaaababcd =&gt; abcd</p>
+<p>aaaaaa =&gt; a</p>
+<h3 id="0x02-编码"><a href="#0x02-编码" class="headerlink" title="0x02 编码"></a>0x02 编码</h3><ul>
+<li>golang 版本<figure class="highlight golang"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(s <span class="keyword">string</span>)</span> <span class="title">int</span></span> &#123;</div><div class="line">    location := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">128</span>)</div><div class="line"></div><div class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">128</span>; i++ &#123;</div><div class="line">		location[i] = <span class="number">-1</span></div><div class="line">	&#125;</div><div class="line">	begin, length  := <span class="number">-1</span>, <span class="number">0</span></div><div class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> s &#123;</div><div class="line">		<span class="keyword">if</span> location[v] &gt; begin&#123;</div><div class="line">			begin = location[s[i]]</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">if</span> (i - begin &gt; length) &#123;</div><div class="line">			length = i - begin;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		location[s[i]] = i;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> length</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="0x03-运行结果"><a href="#0x03-运行结果" class="headerlink" title="0x03 运行结果"></a>0x03 运行结果</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">语言</th>
+<th style="text-align:center">运行时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Golang</td>
+<td style="text-align:center">9ms</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank" rel="external">传送门：Longest Substring Without Repeating Characters</a></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/08/05/plus-one/" class="next">下一篇</a></div><div class="copyright"><p>© 2017 <a href="https://jsooo.github.io">Johnson Wang</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-104216977-1",'auto');ga('send','pageview');</script></body></html>
